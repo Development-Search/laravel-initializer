@@ -19,3 +19,7 @@ composer.lock
 Session.vim
 .netrwhist
 *~
+
+# KomodoEdit #
+*.komodoproject
+.komodotools
