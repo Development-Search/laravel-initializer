@@ -9,6 +9,14 @@ composer.phar
 composer.lock
 
 ###
+# Packages
+###
+
+### Fire.app ###
+fire_app_log.txt
+.sass-cache
+
+###
 # Editor
 ###
 
