@@ -7,3 +7,15 @@
 .env.php
 composer.phar
 composer.lock
+
+###
+# Editor
+###
+
+# vim #
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
