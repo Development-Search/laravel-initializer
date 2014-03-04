@@ -81,6 +81,7 @@ return array(
 	'providers' => append_config(array(
 		/* Additional Providers */
 		'Way\Generators\GeneratorsServiceProvider',
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 	)),
 
 	/*

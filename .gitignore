@@ -13,6 +13,9 @@ composer.lock
 # Packages
 ###
 
+### barryvdh/laravel-ide-helper ###
+_ide_helper.php
+
 ### Fire.app ###
 fire_app_log.txt
 .sass-cache
