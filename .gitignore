@@ -4,6 +4,7 @@
 /bootstrap/compiled.php
 .env.local.php
 .env.php
+.environment.php
 /vendor
 composer.phar
 composer.lock

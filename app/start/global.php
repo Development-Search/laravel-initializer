@@ -31,7 +31,10 @@ ClassLoader::addDirectories(array(
 |
 */
 
-Log::useFiles(storage_path().'/logs/laravel.log');
+//Log::useFiles(storage_path().'/logs/laravel.log');
+
+$logFile = 'log-'.php_sapi_name().'.log';
+Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +51,27 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
+	//Log::error($exception);
+
+    $pathInfo = Request::getPathInfo();
+    $message = $exception->getMessage() ?: 'Exception';
+    Log::error("$code - $message @ $pathInfo\r\n$exception");
+    
+    if (Config::get('app.debug')) {
+    	return;
+    }
+
+    switch ($code)
+    {
+        case 403:
+            return Response::view('system/error-403', array(), 403);
+
+        case 500:
+            return Response::view('system/error-500', array(), 500);
+
+        default:
+            return Response::view('system/error-404', array(), $code);
+    }
 });
 
 /*
@@ -64,7 +87,7 @@ App::error(function(Exception $exception, $code)
 
 App::down(function()
 {
-	return Response::make("Be right back!", 503);
+	return Response::view('system/maintenance', array(), 503);
 });
 
 /*
