@@ -1,8 +1,8 @@
-@extends('layouts.frontend_base')
+@extends('frontend.layouts.default')
 
 {{-- title --}}
 @section('title')
-
+Resend activation code
 @parent
 @stop
 
@@ -21,7 +21,8 @@
 </script>
 @stop
 
-{{-- main --}}
-@section('main')
-
+{{-- content --}}
+@section('content')
+<h1>Please check your email</h1>
+<p>We'll send you a activation code email. Please check your inbox first, and then click the link to activate your account.</p>
 @stop

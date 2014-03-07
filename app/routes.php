@@ -14,4 +14,54 @@
 Route::get('/', function()
 {
 	return View::make('home.index');
+});/*
+|--------------------------------------------------------------------------
+| Authentication and Authorization Routes
+|--------------------------------------------------------------------------
+|
+|
+|
+*/
+Route::group(['prefix' => 'auth'], function()
+{
+
+	# Login
+	Route::get('signin' , ['as' => 'auth.signin.index'  , 'uses' => 'AuthController@getSignin']);
+	Route::post('signin', ['as' => 'auth.signin.process', 'uses' => 'AuthController@postSignin']);
+
+	# Register
+	Route::get('signup' , ['as' => 'auth.signup.index'  , 'uses' => 'AuthController@getSignup']);
+	Route::post('signup', ['as' => 'auth.signup.process', 'uses' => 'AuthController@postSignup']);
+
+	# Account Activation
+	Route::get('activate'                 , ['as' => 'auth.activate.index', 'uses' => 'AuthController@getActivate']);
+	Route::get('activate/{activationCode}', ['as' => 'auth.activate.bycode', 'uses' => 'AuthController@getActivateByCode']);
+	Route::post('activate/check'          , ['as' => 'auth.activate.check', 'uses' => 'AuthController@postActivateCheck']);
+	Route::post('post-activation'         , ['as' => 'auth.post-activation', 'uses' => 'AuthController@postPostActivation']);
+	
+	# Resend Account Activation Email
+	Route::get('resend-activation' , ['as' => 'auth.resend-activation.index'  , 'uses' => 'AuthController@getResendActivation']);
+	Route::post('resend-activation', ['as' => 'auth.resend-activation.process', 'uses' => 'AuthController@postResendActivation']);
+
+	# Forgot Password
+	Route::get('forgot-password' , ['as' => 'auth.forgot-password.index'  , 'uses' => 'AuthController@getForgotPassword']);
+	Route::post('forgot-password', ['as' => 'auth.forgot-password.process', 'uses' => 'AuthController@postForgotPassword']);
+
+	# Forgot Password Confirmation
+	Route::get('forgot-password/{passwordResetCode}' , ['as' => 'auth.forgot-password-confirm.index'  , 'uses' => 'AuthController@getForgotPasswordConfirm']);
+	Route::post('forgot-password/{passwordResetCode}', ['as' => 'auth.forgot-password-confirm.process', 'uses' => 'AuthController@postForgotPasswordConfirm']);
+
+	# Logout
+	Route::get('logout', ['as' => 'auth.logout', 'uses' => 'AuthController@getLogout']);
+
 });
+
+
+
+/** 
+ *  ------------------------------------------
+ *  Frontend Routes
+ *  ------------------------------------------
+ */
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
+Route::get('/tos', ['as' => 'tos', 'uses' => 'StaticController@tos']);

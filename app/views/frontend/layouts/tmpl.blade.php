@@ -1,8 +1,8 @@
-@extends('layouts.frontend_base')
+@extends('frontend.layouts.default')
 
 {{-- title --}}
 @section('title')
-Homepage
+
 @parent
 @stop
 
@@ -21,7 +21,7 @@ Homepage
 </script>
 @stop
 
-{{-- main --}}
-@section('main')
-<h1>Homepage</h1>
+{{-- content --}}
+@section('content')
+
 @stop
