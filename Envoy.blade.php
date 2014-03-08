@@ -1,7 +1,8 @@
 {{-- https://github.com/laravel/envoy --}}
 
-@servers(['web' => 'username@127.0.0.1'])
+@servers(['staging' => '',
+		  'production' => ''])
 
-@task('foo', ['on' => 'web'])
-    ls -la
+@task('', ['on' => ''])
+    
 @endtask
