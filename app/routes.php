@@ -11,10 +11,51 @@
 |
 */
 
-Route::get('/', function()
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+|
+| Register all the admin routes.
+|
+*/
+
+Route::group(['prefix' => 'admin'], function()
 {
-	return View::make('home.index');
-});/*
+
+	# User Management
+	Route::group(['prefix' => 'users'], function()
+	{
+		Route::get('/'               , ['as' => 'user.index'         , 'uses' => 'Controllers\Admin\UsersController@getIndex']);
+		Route::get('/non-activate'   , ['as' => 'user.non-activate'  , 'uses' => 'Controllers\Admin\UsersController@getNonActivate']);
+		Route::get('/deleted'        , ['as' => 'user.activate'      , 'uses' => 'Controllers\Admin\UsersController@getDeleted']);
+		Route::get('/all'            , ['as' => 'user.all'           , 'uses' => 'Controllers\Admin\UsersController@getAll']);
+		Route::get('create'          , ['as' => 'user.create.index'  , 'uses' => 'Controllers\Admin\UsersController@getCreate']);
+		Route::post('create'         , ['as' => 'user.create.process', 'uses' => 'Controllers\Admin\UsersController@postCreate']);
+		Route::get('{userId}/edit'   , ['as' => 'user.update.index'  , 'uses' => 'Controllers\Admin\UsersController@getEdit']);
+		Route::post('{userId}/edit'  , ['as' => 'user.update.process', 'uses' => 'Controllers\Admin\UsersController@postEdit']);
+		Route::get('{userId}/delete' , ['as' => 'user.delete.index'  , 'uses' => 'Controllers\Admin\UsersController@getDelete']);
+		Route::get('{userId}/restore', ['as' => 'user.restore.index' , 'uses' => 'Controllers\Admin\UsersController@getRestore']);
+	});
+
+	# Group Management
+	Route::group(['prefix' => 'groups'], function()
+	{
+		Route::get('/'                , ['as' => 'group.index'         , 'uses' => 'Controllers\Admin\GroupsController@getIndex']);
+		Route::get('create'           , ['as' => 'group.create.index'  , 'uses' => 'Controllers\Admin\GroupsController@getCreate']);
+		Route::post('create'          , ['as' => 'group.create.process', 'uses' => 'Controllers\Admin\GroupsController@postCreate']);
+		Route::get('{groupId}/edit'   , ['as' => 'group.update.index'  , 'uses' => 'Controllers\Admin\GroupsController@getEdit']);
+		Route::post('{groupId}/edit'  , ['as' => 'group.update.process', 'uses' => 'Controllers\Admin\GroupsController@postEdit']);
+		Route::get('{groupId}/delete' , ['as' => 'group.delete.index'  , 'uses' => 'Controllers\Admin\GroupsController@getDelete']);
+		Route::get('{groupId}/restore', ['as' => 'group.restore.index' , 'uses' => 'Controllers\Admin\GroupsController@getRestore']);
+	});
+
+	# Dashboard
+	Route::get('/', ['as' => 'admin.index', 'uses' => 'Controllers\Admin\DashboardController@getIndex']);
+
+});
+
+/*
 |--------------------------------------------------------------------------
 | Authentication and Authorization Routes
 |--------------------------------------------------------------------------
