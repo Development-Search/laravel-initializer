@@ -4,7 +4,13 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.1.*"
+		"laravel/framework": "4.1.*",
+		"cartalyst/sentry": "2.1.*",
+		"codegyre/robo": "dev-master"
+	},
+	"require-dev": {
+		"way/generators": "2.*",
+		"barryvdh/laravel-ide-helper": "v1.8.1"
 	},
 	"autoload": {
 		"classmap": [

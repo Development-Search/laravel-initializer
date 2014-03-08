@@ -1,0 +1,12 @@
+body { 
+	padding-top: 65px;
+}
+
+.frontend-hud {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.copyright {
+  color: gray;
+}

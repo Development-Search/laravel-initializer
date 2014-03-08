@@ -1,0 +1,35 @@
+.form-activate {
+  max-width: 350px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-activate .form-activate-heading,
+.form-activate .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-activate .checkbox {
+  font-weight: normal;
+}
+
+.form-activate .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-activate .form-control:focus {
+  z-index: 2;
+}
+
+.more-actions {
+  max-width: 400px;
+  padding: 15px;
+  margin: 0 auto;
+  text-align: center;
+}

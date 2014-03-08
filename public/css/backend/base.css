@@ -1,0 +1,17 @@
+body {
+  padding-top: 50px;
+}
+
+.backend-hud {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.listed {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.copyright {
+  color: gray;
+}
