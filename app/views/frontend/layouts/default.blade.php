@@ -9,7 +9,7 @@
 	<meta name="description" content="">
     <title>
     @section('title')
-      ｜laravel-initializer backend
+	｜laravel-initializer backend
     @show
     </title>
 

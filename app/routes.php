@@ -56,6 +56,37 @@ Route::group(['prefix' => 'auth'], function()
 
 });
 
+/*
+|--------------------------------------------------------------------------
+| Account Routes
+|--------------------------------------------------------------------------
+|
+|
+|
+*/
+
+Route::group(['prefix' => 'account'], function()
+{
+
+	# Account Dashboard
+	Route::get('/', ['as' => 'account.index', 'uses' => 'Controllers\Account\DashboardController@getIndex']);
+
+	# Profile
+	Route::get('profile' , ['as' => 'account.profile.index'  , 'uses' => 'Controllers\Account\ProfileController@getIndex']);
+	Route::post('profile', ['as' => 'account.profile.process', 'uses' => 'Controllers\Account\ProfileController@postIndex']);
+
+	# Change Password
+	Route::get('change-password' , ['as' => 'account.change-password.index'  , 'uses' => 'Controllers\Account\ChangePasswordController@getIndex']);
+	Route::post('change-password', ['as' => 'account.change-password.process', 'uses' => 'Controllers\Account\ChangePasswordController@postIndex']);
+
+	# Change Email
+	Route::get('change-email' , ['as' => 'account.change-email.index'  , 'uses' => 'Controllers\Account\ChangeEmailController@getIndex']);
+	Route::post('change-email', ['as' => 'account.change-email.process', 'uses' => 'Controllers\Account\ChangeEmailController@postIndex']);
+
+	# Settings
+	Route::get('settings', ['as' => 'account.settings.index' , 'uses' => 'Controllers\Account\SettingsController@getIndex']);
+
+});
 
 
 /** 

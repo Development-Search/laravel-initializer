@@ -1,8 +1,8 @@
-@extends('frontend.layouts.default')
+@extends('frontend.layouts.account')
 
 {{-- title --}}
 @section('title')
-
+Dashboard
 @parent
 @stop
 
@@ -22,6 +22,6 @@
 @stop
 
 {{-- content --}}
-@section('content')
-
+@section('account-content')
+<h2>Your dashboard</h2>
 @stop
